@@ -1,16 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
+import Home from './pages/Home'
+import Upload from './pages/Upload'
 
-class Car extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return <h2>Hi, I am a {this.props.model}!</h2>;
-  }
+const App = () => {
+  return (
+    <HashRouter>
+      <Switch>
+        <Route path='/' component={Home} />
+        <Route path='/upload' component={Upload} />
+      </Switch>
+    </HashRouter>
+  )
 }
 
+export default App
+
 ReactDOM.render(
-  <Car model="Mustang" />,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
