@@ -1,5 +1,5 @@
 const { createClient } = require("@astrajs/collections")
-const collection = 'posts'
+const collection = 'tiktokposts'
 
 exports.handler = async function(event, context, callback) {
   // create an Astra client
@@ -12,11 +12,10 @@ exports.handler = async function(event, context, callback) {
   const posts = astraClient
           .namespace(process.env.ASTRA_DB_KEYSPACE)
           .collection(collection)
-
+          const body = JSON.parse(event.body)
+  
   try {
-     await posts.create("a post", {
-      title: "my first post",
-    })
+    posts.update(body.userId, body.data)
 
     return {
       statusCode: 200

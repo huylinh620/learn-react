@@ -1,9 +1,22 @@
+  import React from 'react'
+import { Link } from 'react-router-dom'
+
 const Header = () => {
   return (
     <div className="header">
-      <h1>Header</h1>
+      <Link to='/'>
+        <div className="logo"></div>
+      </Link>
+      <div className="upload-container">
+        <div className="section">
+          <Link to='/upload'>
+            <div className="upload" />
+          </Link>
+          <img className="personal" src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
+        </div>
+      </div>
     </div>
-  )
+  )  
 }
-
+  
 export default Header
